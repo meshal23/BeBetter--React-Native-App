@@ -3,3 +3,194 @@
 @import 'tailwindcss/utilities.css';
 
 @import 'nativewind/theme';
+
+@theme {
+  --color-background: #d5f8ef;
+  --color-foreground: #ffffff;
+  --color-card: #1a1e29;
+  --color-muted: #242a38;
+  --color-muted-foreground: #94a3b8;
+  --color-primary: #8b5cf6;
+  --color-primary-foreground: #ffffff;
+  --color-accent: #a855f7;
+  --color-border: #2e3646;
+  --color-success: #22c55e;
+  --color-destructive: #ef4444;
+
+  /* --font-sans: 'sans-regular';
+  --font-sans-light: 'sans-light';
+  --font-sans-medium: 'sans-medium';
+  --font-sans-semibold: 'sans-semibold';
+  --font-sans-bold: 'sans-bold';
+  --font-sans-extrabold: 'sans-extrabold'; */
+
+  --spacing-0: 0px;
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-7: 28px;
+  --spacing-8: 32px;
+  --spacing-9: 36px;
+  --spacing-10: 40px;
+  --spacing-11: 44px;
+  --spacing-12: 48px;
+  --spacing-14: 56px;
+  --spacing-16: 64px;
+  --spacing-18: 72px;
+  --spacing-20: 80px;
+  --spacing-24: 96px;
+  --spacing-30: 120px;
+}
+
+@layer components {
+  /* Navigation & Tabs */
+  .tabs-icon {
+    @apply size-12 items-center justify-center;
+  }
+
+  .tabs-pill {
+    @apply size-12 items-center justify-center rounded-full bg-transparent;
+  }
+
+  .tabs-active {
+    @apply bg-primary;
+  }
+
+  .tabs-glyph {
+    @apply text-foreground size-6;
+  }
+
+  /* Screen Layouts & Containers */
+  .screen-container {
+    @apply bg-background flex-1 px-5 pt-4;
+  }
+
+  .header-row {
+    @apply mb-6 flex-row items-center justify-between;
+  }
+
+  /* .header-title {
+    @apply font-sans-bold text-foreground text-2xl;
+  } */
+
+  /* .header-subtitle {
+    @apply font-sans-medium text-muted-foreground text-sm;
+  } */
+
+  /* Cards & Glassmorphism */
+  .card-base {
+    @apply border-border bg-card rounded-3xl border p-5;
+  }
+
+  .card-interactive {
+    @apply border-border bg-card active:bg-muted rounded-3xl border p-5;
+  }
+
+  .card-gradient-purple {
+    @apply bg-primary rounded-3xl p-6;
+  }
+
+  /* Focus & Timer Components */
+  .timer-display-container {
+    @apply my-8 items-center justify-center py-6;
+  }
+
+  /* .timer-text-large {
+    @apply font-sans-extrabold text-foreground text-6xl tracking-wider;
+  } */
+
+  /* .timer-subtext {
+    @apply font-sans-medium text-muted-foreground mt-2 text-base;
+  } */
+
+  .control-button-primary {
+    @apply bg-primary h-14 w-full flex-row items-center justify-center rounded-2xl px-6;
+  }
+
+  /* .control-button-text {
+    @apply font-sans-bold text-primary-foreground text-base;
+  } */
+
+  .control-button-secondary {
+    @apply border-border bg-card h-14 w-full flex-row items-center justify-center rounded-2xl border px-6;
+  }
+
+  /* .control-button-secondary-text {
+    @apply font-sans-semibold text-foreground text-base;
+  } */
+
+  /* Journal & List Items */
+  .journal-card {
+    @apply border-border bg-card mb-4 rounded-2xl border p-4;
+  }
+
+  /* .journal-card-title {
+    @apply font-sans-bold text-foreground text-lg;
+  } */
+
+  /* .journal-card-date {
+    @apply font-sans-medium text-muted-foreground mt-1 text-xs;
+  } */
+
+  /* .journal-card-body {
+    @apply font-sans-regular text-muted-foreground mt-2 text-sm;
+  } */
+
+  /* Form Fields & Controls */
+  .form-group {
+    @apply mb-4 gap-2;
+  }
+
+  /* .form-label {
+    @apply font-sans-semibold text-foreground text-sm;
+  } */
+
+  /* .input-field {
+    @apply border-border bg-muted font-sans-regular text-foreground h-12 rounded-xl border px-4 text-base;
+  } */
+
+  .input-field-error {
+    @apply border-destructive;
+  }
+
+  /* .error-text {
+    @apply font-sans-medium text-destructive text-xs;
+  } */
+
+  /* Modals */
+  .modal-overlay {
+    @apply flex-1 justify-end bg-black/70;
+  }
+
+  .modal-container {
+    @apply border-border bg-card max-h-[85%] rounded-t-3xl border-t p-6;
+  }
+
+  .modal-header {
+    @apply border-border mb-4 flex-row items-center justify-between border-b pb-4;
+  }
+
+  /* .modal-title {
+    @apply font-sans-bold text-foreground text-xl;
+  } */
+
+  /* Utility Helpers */
+  .chip-item {
+    @apply border-border bg-muted rounded-full border px-4 py-2;
+  }
+
+  .chip-item-active {
+    @apply border-primary bg-primary/20;
+  }
+
+  /* .chip-text {
+    @apply font-sans-semibold text-muted-foreground text-sm;
+  } */
+
+  .chip-text-active {
+    @apply text-primary;
+  }
+}
