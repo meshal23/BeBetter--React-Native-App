@@ -10,19 +10,19 @@
   --color-card: #1a1e29;
   --color-muted: #242a38;
   --color-muted-foreground: #94a3b8;
-  --color-primary: #8b5cf6;
+  --color-primary: #45645e;
   --color-primary-foreground: #ffffff;
   --color-accent: #a855f7;
   --color-border: #2e3646;
   --color-success: #22c55e;
   --color-destructive: #ef4444;
 
-  /* --font-sans: 'sans-regular';
+  --font-sans: 'sans-regular';
   --font-sans-light: 'sans-light';
   --font-sans-medium: 'sans-medium';
   --font-sans-semibold: 'sans-semibold';
   --font-sans-bold: 'sans-bold';
-  --font-sans-extrabold: 'sans-extrabold'; */
+  --font-sans-extrabold: 'sans-extrabold';
 
   --spacing-0: 0px;
   --spacing-1: 4px;
@@ -72,13 +72,13 @@
     @apply mb-6 flex-row items-center justify-between;
   }
 
-  /* .header-title {
+  .header-title {
     @apply font-sans-bold text-foreground text-2xl;
-  } */
+  }
 
-  /* .header-subtitle {
+  .header-subtitle {
     @apply font-sans-medium text-muted-foreground text-sm;
-  } */
+  }
 
   /* Cards & Glassmorphism */
   .card-base {
