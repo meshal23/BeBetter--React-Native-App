@@ -3,8 +3,10 @@ import { Slot, SplashScreen } from 'expo-router';
 import { useFonts } from 'expo-font';
 import { useEffect } from 'react';
 
+SplashScreen.preventAutoHideAsync();
+
 export default function RootLayout() {
-  const [fontsLoaded] = useFonts({
+  const [loaded, error] = useFonts({
     'sans-regular': require('../assets/fonts/Manrope-Regular.ttf'),
     'sans-bold': require('../assets/fonts/Manrope-Bold.ttf'),
     'sans-medium': require('../assets/fonts/Manrope-Medium.ttf'),
@@ -14,9 +16,14 @@ export default function RootLayout() {
   });
 
   useEffect(() => {
-    if (fontsLoaded) {
+    if (loaded || error) {
       SplashScreen.hideAsync();
     }
-  }, [fontsLoaded]);
+  }, [loaded, error]);
+
+  if (!loaded && !error) {
+    return null;
+  }
+
   return <Slot />;
 }

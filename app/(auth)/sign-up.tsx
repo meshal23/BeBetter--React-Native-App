@@ -7,7 +7,7 @@ const SafeAreaView = styled(RNSafeAreaView);
 
 const SignUp = () => {
   return (
-    <SafeAreaView>
+    <SafeAreaView className="flex-1 items-center justify-center">
       <Text>SignUp</Text>
     </SafeAreaView>
   );
