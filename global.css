@@ -3,7 +3,7 @@
 @import 'tailwindcss/utilities.css';
 
 @import 'nativewind/theme';
-
+ 
 @theme {
   --color-background: #d5f8ef;
   --color-foreground: #ffffff;
@@ -98,67 +98,67 @@
     @apply my-8 items-center justify-center py-6;
   }
 
-  /* .timer-text-large {
+  .timer-text-large {
     @apply font-sans-extrabold text-foreground text-6xl tracking-wider;
-  } */
+  }
 
-  /* .timer-subtext {
+  .timer-subtext {
     @apply font-sans-medium text-muted-foreground mt-2 text-base;
-  } */
+  }
 
   .control-button-primary {
     @apply bg-primary h-14 w-full flex-row items-center justify-center rounded-2xl px-6;
   }
 
-  /* .control-button-text {
+  .control-button-text {
     @apply font-sans-bold text-primary-foreground text-base;
-  } */
+  }
 
   .control-button-secondary {
     @apply border-border bg-card h-14 w-full flex-row items-center justify-center rounded-2xl border px-6;
   }
 
-  /* .control-button-secondary-text {
+  .control-button-secondary-text {
     @apply font-sans-semibold text-foreground text-base;
-  } */
+  }
 
   /* Journal & List Items */
   .journal-card {
     @apply border-border bg-card mb-4 rounded-2xl border p-4;
   }
 
-  /* .journal-card-title {
+  .journal-card-title {
     @apply font-sans-bold text-foreground text-lg;
-  } */
+  }
 
-  /* .journal-card-date {
+  .journal-card-date {
     @apply font-sans-medium text-muted-foreground mt-1 text-xs;
-  } */
+  }
 
-  /* .journal-card-body {
-    @apply font-sans-regular text-muted-foreground mt-2 text-sm;
-  } */
+  .journal-card-body {
+    @apply font-sans text-muted-foreground mt-2 text-sm;
+  }
 
   /* Form Fields & Controls */
   .form-group {
     @apply mb-4 gap-2;
   }
 
-  /* .form-label {
+  .form-label {
     @apply font-sans-semibold text-foreground text-sm;
-  } */
+  }
 
-  /* .input-field {
-    @apply border-border bg-muted font-sans-regular text-foreground h-12 rounded-xl border px-4 text-base;
-  } */
+  .input-field {
+    @apply border-border bg-muted font-sans text-foreground h-12 rounded-xl border px-4 text-base;
+  }
 
   .input-field-error {
     @apply border-destructive;
   }
 
-  /* .error-text {
+  .error-text {
     @apply font-sans-medium text-destructive text-xs;
-  } */
+  }
 
   /* Modals */
   .modal-overlay {
@@ -173,9 +173,23 @@
     @apply border-border mb-4 flex-row items-center justify-between border-b pb-4;
   }
 
-  /* .modal-title {
+  .modal-title {
     @apply font-sans-bold text-foreground text-xl;
-  } */
+  }
+
+  /* Drawer */
+  .drawer-header {
+    @apply bg-white p-5 mb-2.5 rounded-2xl;
+  }
+
+  /* Drawer Navigations */
+  .drawer-pill {
+    @apply size-10 items-center justify-center rounded-full bg-transparent;
+  }
+
+  .drawer-active {
+    @apply bg-primary;
+  }
 
   /* Utility Helpers */
   .chip-item {
@@ -186,9 +200,9 @@
     @apply border-primary bg-primary/20;
   }
 
-  /* .chip-text {
+  .chip-text {
     @apply font-sans-semibold text-muted-foreground text-sm;
-  } */
+  }
 
   .chip-text-active {
     @apply text-primary;

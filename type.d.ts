@@ -7,6 +7,13 @@ declare global {
     icon: ImageSourcePropType;
   }
 
+  interface AppDrawer {
+    name: string;
+    title: string;
+    drawerLabel:string;
+    icon: ImageSourcePropType;
+  }
+
   interface TabIconProps {
     focused: boolean;
     icon: ImageSourcePropType;
