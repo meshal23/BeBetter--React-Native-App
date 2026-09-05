@@ -29,7 +29,7 @@ export default function RootLayout() {
           position: 'absolute',
           bottom: Math.max(insets.bottom, tabBar.horizontalInset),
           height: tabBar.height,
-          marginHorizontal: tabBar.horizontalInset,
+          marginHorizontal: tabBar.horizontalInset, 
           borderRadius: tabBar.radius,
           backgroundColor: colors.primary,
           borderTopWidth: 0,

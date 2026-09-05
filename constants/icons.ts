@@ -17,6 +17,12 @@ import setting from '@/assets/icons/setting.png';
 import spotify from '@/assets/icons/spotify.png';
 import wallet from '@/assets/icons/wallet.png';
 import journal from '@/assets/icons/journal.png';
+import community from '@/assets/icons/community.png';
+import meditate from '@/assets/icons/meditate.png';
+import donate from '@/assets/icons/donate.png';
+import plans from '@/assets/icons/subscription.png';
+import dashboard from '@/assets/icons/dashboard.png';
+import logout from '@/assets/icons/logout.png';
 
 export const icons = {
   home,
@@ -38,6 +44,12 @@ export const icons = {
   claude,
   canva,
   journal,
+  community,
+  meditate,
+  donate,
+  plans,
+  dashboard,
+  logout,
 } as const;
 
 export type IconKey = keyof typeof icons;
