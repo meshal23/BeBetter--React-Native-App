@@ -8,8 +8,12 @@ export const colors = {
   accent: '#ea7a53',
   border: 'rgba(0, 0, 0, 0.1)',
   success: '#16a34a',
-  destructive: '#dc2626',
+  destructive: '#BA1A1A',
   subscription: '#8fd1bd',
+  drawerBg: '#DFE4E0',
+  drawerHeaderBg: '#FDFEFD',
+  drawerActiveTint: '#45645E',
+  drawerActiveBg: '#C3C8C4',
 } as const;
 
 export const spacing = {
