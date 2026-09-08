@@ -1,22 +1,46 @@
-import { View, Text } from 'react-native';
-import React from 'react';
-import { SafeAreaView as RNSafeAreaView } from 'react-native-safe-area-context';
-import { styled } from 'nativewind';
-import { Link } from 'expo-router';
+// app/(drawer)/(tabs)/index.tsx (Home)
 
-const SafeAreaView = styled(RNSafeAreaView);
+import React from 'react';
+import { View, ScrollView } from 'react-native';
+import dayjs from 'dayjs';
+import { ScreenWrapper } from '@/components/ScreenWrapper';
+import SobrietyTracker from '@/components/SobrietyTracker';
+import DailyIntentionsList from '@/components/DailyIntentionsList';
+import AnimatedCard from '@/components/AnimatedCard';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import RewardsSection from '@/components/RewardsSection';
+import ReflectCardList from '@/components/ReflectCardList';
 
 const Home = () => {
+  const insets = useSafeAreaInsets();
   return (
-    <SafeAreaView className="bg-background flex-1 items-center justify-center">
-      <Link href="/(auth)/sign-in" className="rounded-2xl bg-black p-3 text-white">
-        Sign in here
-      </Link>
+    <ScreenWrapper>
+      <ScrollView
+        className="w-full flex-1 gap-9 px-1"
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ paddingBottom: insets.bottom + 80 }}>
+        {/* Top Section: Takes natural height */}
+        <View className="mb-8 w-full">
+          <SobrietyTracker nextMilestoneDays={40} />
+        </View>
 
-      <Link href="/(auth)/sign-up" className="mt-2 rounded-2xl bg-black p-3 text-white">
-        Sign up here
-      </Link>
-    </SafeAreaView>
+        <View className="w-full flex-1">
+          <DailyIntentionsList />
+        </View>
+
+        <View className="w-full flex-1">
+          <AnimatedCard />
+        </View>
+
+        <View className="w-full flex-1">
+          <RewardsSection />
+        </View>
+
+        <View className="w-full flex-1">
+          <ReflectCardList />
+        </View>
+      </ScrollView>
+    </ScreenWrapper>
   );
 };
 

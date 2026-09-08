@@ -3,7 +3,7 @@
 @import 'tailwindcss/utilities.css';
 
 @import 'nativewind/theme';
- 
+
 @theme {
   --color-background: #d5f8ef;
   --color-foreground: #ffffff;
@@ -16,7 +16,7 @@
   --color-border: #2e3646;
   --color-success: #22c55e;
   --color-destructive: #ef4444;
-
+  --color-text-color: #163630;
   --font-sans: 'sans-regular';
   --font-sans-light: 'sans-light';
   --font-sans-medium: 'sans-medium';
@@ -136,7 +136,7 @@
   }
 
   .journal-card-body {
-    @apply font-sans text-muted-foreground mt-2 text-sm;
+    @apply text-muted-foreground mt-2 font-sans text-sm;
   }
 
   /* Form Fields & Controls */
@@ -149,7 +149,7 @@
   }
 
   .input-field {
-    @apply border-border bg-muted font-sans text-foreground h-12 rounded-xl border px-4 text-base;
+    @apply border-border bg-muted text-foreground h-12 rounded-xl border px-4 font-sans text-base;
   }
 
   .input-field-error {
@@ -179,7 +179,7 @@
 
   /* Drawer */
   .drawer-header {
-    @apply bg-white p-5 mb-2.5 rounded-2xl;
+    @apply mb-2.5 rounded-2xl bg-white p-5;
   }
 
   /* Drawer Navigations */

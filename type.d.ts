@@ -10,12 +10,17 @@ declare global {
   interface AppDrawer {
     name: string;
     title: string;
-    drawerLabel:string;
+    drawerLabel: string;
     icon: ImageSourcePropType;
   }
 
   interface TabIconProps {
     focused: boolean;
+    icon: ImageSourcePropType;
+  }
+
+  interface CustomIconProps {
+    focused?: boolean;
     icon: ImageSourcePropType;
   }
 
@@ -56,6 +61,16 @@ declare global {
 
   interface ListHeadingProps {
     title: string;
+  }
+
+  interface SobrietyTrackerProps {
+    nextMilestoneDays: number;
+  }
+
+  interface DailyIntention {
+    icon: ImageSourcePropType | string;
+    title: string;
+    subtitle: string;
   }
 }
 
