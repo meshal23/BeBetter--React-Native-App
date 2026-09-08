@@ -9,6 +9,26 @@ interface SoberityState {
   setStartDate: (date: string) => void;
 }
 
+/**
+ * Validates and normalizes a date string to ISO format.
+ * Returns a valid ISO string or generates a new one if invalid.
+ */
+const validateAndNormalizeDateString = (dateString: string | undefined): string => {
+  if (!dateString) {
+    return dayjs().toISOString();
+  }
+
+  const parsed = dayjs(dateString);
+
+  // dayjs.isValid() returns false for invalid dates
+  if (!parsed.isValid()) {
+    return dayjs().toISOString();
+  }
+
+  // Ensure it's in ISO format
+  return parsed.toISOString();
+};
+
 export const useSoberityStore = create<SoberityState>()(
   persist(
     (set) => ({
@@ -19,11 +39,18 @@ export const useSoberityStore = create<SoberityState>()(
       resetStreak: () => set({ startDateString: dayjs().toISOString() }),
 
       // Action to manually set a specific date
-      setStartDate: (dateString: string) => set({ startDateString: dateString }),
+      setStartDate: (dateString: string) =>
+        set({ startDateString: validateAndNormalizeDateString(dateString) }),
     }),
     {
       name: 'soberity-storage',
       storage: createJSONStorage(() => AsyncStorage),
+      // Validate rehydrated state from AsyncStorage
+      onRehydrateStorage: () => (state) => {
+        if (state) {
+          state.startDateString = validateAndNormalizeDateString(state.startDateString);
+        }
+      },
     }
   )
 );

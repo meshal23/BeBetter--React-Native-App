@@ -17,7 +17,9 @@ export const ScreenWrapper = ({ children }: { children: React.ReactNode }) => {
       <View className="w-full flex-row items-center justify-start px-3 py-2.5">
         <TouchableOpacity
           onPress={() => navigation.getParent()?.dispatch({ type: 'OPEN_DRAWER' })}
-          hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}>
+          hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+          accessibilityRole="button"
+          accessibilityLabel="Open navigation menu">
           <View className="tabs-icon">
             <View className="drawer-pill">
               <Image source={icons.hamburger} resizeMode="contain" className="tabs-glyph" />
