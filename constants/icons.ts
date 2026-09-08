@@ -23,6 +23,13 @@ import donate from '@/assets/icons/donate.png';
 import plans from '@/assets/icons/subscription.png';
 import dashboard from '@/assets/icons/dashboard.png';
 import logout from '@/assets/icons/logout.png';
+import hamburger from '@/assets/icons/hamburger.png';
+import workout from '@/assets/icons/workout.png';
+import gift from '@/assets/icons/gift.png';
+import wallpaper from '@/assets/icons/wallpaper.png';
+import leaf from '@/assets/icons/leaf.png';
+import learn from '@/assets/icons/learn.png';
+import play from '@/assets/icons/play.png';
 
 export const icons = {
   home,
@@ -50,6 +57,13 @@ export const icons = {
   plans,
   dashboard,
   logout,
+  hamburger,
+  workout,
+  gift,
+  wallpaper,
+  leaf,
+  learn,
+  play,
 } as const;
 
 export type IconKey = keyof typeof icons;

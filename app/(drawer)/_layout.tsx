@@ -7,9 +7,9 @@ import { useRouter } from 'expo-router';
 import { colors } from '@/constants/theme';
 import clsx from 'clsx';
 import { drawer } from '@/constants/data';
-import images from 'constants/images';
+import images from '@/constants/images';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { icons } from 'constants/icons';
+import { icons } from '@/constants/icons';
 
 const DrawerIcon = ({ focused, icon }: TabIconProps) => {
   return (
@@ -70,7 +70,7 @@ function CustomDrawerContent(props: any) {
           router.replace('/(auth)/login');
         }}
       /> */}
-  
+
       <Pressable
         onPress={() => {
           router.replace('/(auth)/login');
@@ -107,7 +107,7 @@ export default function DrawerLayout() {
       <Drawer
         drawerContent={(props) => <CustomDrawerContent {...props} />}
         screenOptions={{
-          headerShown: true,
+          headerShown: false,
           drawerStyle: { backgroundColor: colors.drawerBg, width: 300 },
           // --- Active Item Styling ---
           drawerActiveTintColor: colors.drawerActiveTint, // Active icon & text color

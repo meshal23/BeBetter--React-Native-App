@@ -13,4 +13,9 @@ export const drawer: AppDrawer[] = [
   { name: 'meditate', title: 'Soul Cleansing', icon: icons.meditate, drawerLabel: 'Meditate' },
   { name: 'donate', title: 'Grow Together', icon: icons.donate, drawerLabel: 'Donate' },
   { name: 'plans', title: 'Plans', icon: icons.plans, drawerLabel: 'Plans' },
-]
+];
+
+export const DAILY_INTENTIONS: DailyIntention[] = [
+  { icon: icons.meditate, title: 'Prayer', subtitle: 'Connect with your higher self' },
+  { icon: icons.workout, title: 'Workout', subtitle: 'Improve your physical health' },
+];
