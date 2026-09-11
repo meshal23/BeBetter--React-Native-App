@@ -174,7 +174,7 @@ export const refreshAuth = async (): Promise<boolean> => {
     if (!token) return false;
 
     // Verify token is still valid by making a test request
-    const response = await axios.get(`${POCKETBASE_URL}/api/collections/users/auth-refresh`, {
+    const response = await axios.post(`${POCKETBASE_URL}/api/collections/users/auth-refresh`, {}, {
       headers: { Authorization: token },
     });
 

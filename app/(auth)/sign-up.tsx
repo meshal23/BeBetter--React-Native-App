@@ -56,7 +56,7 @@ const SignUp = () => {
         }
 
         await signUp({
-          username: value.name,
+          name: value.name,
           email: value.email,
           password: value.password,
           passwordConfirm: value.password_confirm,

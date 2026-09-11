@@ -1,9 +1,10 @@
 import '@/global.css';
 import { SplashScreen, Stack, useRouter, useSegments } from 'expo-router';
 import { useFonts } from 'expo-font';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useAuthStore } from '@/store/authStore';
+import { refreshAuth } from '@/lib/auth';
 
 const queryClient = new QueryClient();
 
@@ -14,9 +15,42 @@ function AuthNavigator() {
   const segments = useSegments();
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
   const isLoading = useAuthStore((state) => state.isLoading);
+  const clearAuth = useAuthStore((state) => state.clearAuth);
 
+  const [hasHydrated, setHasHydrated] = useState(useAuthStore.persist.hasHydrated());
+  const [isValidating, setIsValidating] = useState(false);
+
+  // Track hydration completion
   useEffect(() => {
-    if (isLoading) return;
+    const unsubscribe = useAuthStore.persist.onFinishHydration(() => {
+      setHasHydrated(true);
+    });
+    return unsubscribe;
+  }, []);
+
+  // Validate persisted session after hydration
+  useEffect(() => {
+    const validateSession = async () => {
+      if (!hasHydrated || isLoading) return; // Wait for hydration to complete
+
+      if (isAuthenticated) {
+        setIsValidating(true);
+        // Validate the persisted token
+        const isValid = await refreshAuth();
+        if (!isValid) {
+          // Token invalid, clear auth state
+          clearAuth();
+        }
+        setIsValidating(false);
+      }
+    };
+
+    validateSession();
+  }, [hasHydrated, isLoading, isAuthenticated, clearAuth]);
+
+  // Navigation logic
+  useEffect(() => {
+    if (!hasHydrated || isLoading || isValidating) return;
 
     const inAuthGroup = segments[0] === '(auth)';
 
@@ -27,7 +61,11 @@ function AuthNavigator() {
       // Redirect to app if authenticated
       router.replace('/(drawer)/(tabs)');
     }
-  }, [isAuthenticated, segments, isLoading, router]);
+  }, [isAuthenticated, segments, isLoading, isValidating, hasHydrated, router]);
+
+  if (!hasHydrated || isLoading) {
+    return null;
+  }
 
   return (
     <Stack screenOptions={{ headerShown: false }}>
