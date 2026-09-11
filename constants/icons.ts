@@ -30,6 +30,9 @@ import wallpaper from '@/assets/icons/wallpaper.png';
 import leaf from '@/assets/icons/leaf.png';
 import learn from '@/assets/icons/learn.png';
 import play from '@/assets/icons/play.png';
+import user from '@/assets/icons/user.png';
+import eyesOpen from '@/assets/icons/eyes-open.png';
+import eyesClose from '@/assets/icons/eyes-closed.png';
 
 export const icons = {
   home,
@@ -64,6 +67,9 @@ export const icons = {
   leaf,
   learn,
   play,
+  user,
+  eyesOpen,
+  eyesClose,
 } as const;
 
 export type IconKey = keyof typeof icons;

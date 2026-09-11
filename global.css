@@ -6,14 +6,14 @@
 
 @theme {
   --color-background: #d5f8ef;
-  --color-foreground: #ffffff;
+  --color-foreground: #163630;
   --color-card: #1a1e29;
-  --color-muted: #242a38;
+  --color-muted: #edf2ee;
   --color-muted-foreground: #94a3b8;
   --color-primary: #45645e;
   --color-primary-foreground: #ffffff;
   --color-accent: #a855f7;
-  --color-border: #2e3646;
+  --color-border: #a8aca9;
   --color-success: #22c55e;
   --color-destructive: #ef4444;
   --color-text-color: #163630;
@@ -149,7 +149,7 @@
   }
 
   .input-field {
-    @apply border-border bg-muted text-foreground h-12 rounded-xl border px-4 font-sans text-base;
+    @apply border-border bg-muted text-foreground h-12 rounded-xl border px-4 font-sans-medium text-base;
   }
 
   .input-field-error {
