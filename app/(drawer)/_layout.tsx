@@ -10,6 +10,9 @@ import { drawer } from '@/constants/data';
 import images from '@/constants/images';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { icons } from '@/constants/icons';
+import { useAuthStore } from '@/store/authStore';
+
+const POCKETBASE_URL = 'http://10.227.208.211:8090';
 
 const DrawerIcon = ({ focused, icon }: TabIconProps) => {
   return (
@@ -24,6 +27,15 @@ const DrawerIcon = ({ focused, icon }: TabIconProps) => {
 function CustomDrawerContent(props: any) {
   const router = useRouter();
   const insets = useSafeAreaInsets();
+  const signOut = useAuthStore((state) => state.signOut);
+  const user = useAuthStore((state) => state.user);
+
+  console.log(user);
+
+  // Construct avatar URL
+  const avatarUrl = user?.avatar
+    ? `${POCKETBASE_URL}/api/files/${user.collectionName}/${user.id}/${user.avatar}`
+    : icons.user; // Fallback to default user icon
 
   return (
     <View
@@ -35,45 +47,23 @@ function CustomDrawerContent(props: any) {
         paddingBottom: insets.bottom,
       }}>
       <View className="mb-5 flex-row border-b-2 border-black p-5">
-        <Image source={images.avatar} className="mb-2.5 h-16 w-16 rounded-full" />
+        <Image
+          source={user?.avatar ? { uri: avatarUrl } : avatarUrl}
+          className="mb-2.5 h-16 w-16 rounded-full"
+        />
         <View className="ml-4 flex-1 justify-center">
-          <Text className="font-sans-bold">Muhammed Meshal</Text>
-          <Text className="text-muted-foreground text-sm">meshal@example.com</Text>
+          <Text className="font-sans-bold">{user?.name}</Text>
+          <Text className="text-muted-foreground text-sm">{user?.email}</Text>
         </View>
       </View>
       <View style={{ flex: 1 }}>
         <DrawerItemList {...props} />
       </View>
-      {/* <DrawerItem
-        label="Logout"
-        labelStyle={{
-          color: colors.destructive,
-          fontWeight: 'bold',
-          fontSize: 20,
-          marginLeft: -10,
-          textAlign: 'center',
-          flex: 0,
-          width: 'auto',
-        }}
-        style={{
-          backgroundColor: '#FBE7E2',
-          paddingVertical: 5,
-          borderRadius: 10,
-          marginVertical: insets.bottom, // Add some margin at the bottom to avoid overlap with the safe area
-          marginHorizontal: 10, // Add some horizontal margin for better spacing
-          flexDirection: 'row',
-          justifyContent: 'center', // Centers the combined icon + label row
-          alignItems: 'center',
-        }}
-        icon={({ focused }) => <DrawerIcon focused={focused} icon={icons.logout} />}
-        onPress={() => {
-          router.replace('/(auth)/login');
-        }}
-      /> */}
 
       <Pressable
-        onPress={() => {
-          router.replace('/(auth)/login');
+        onPress={async () => {
+          await signOut();
+          router.replace('/(auth)/sign-in');
         }}
         style={({ pressed }) => ({
           backgroundColor: '#FBE7E2',
